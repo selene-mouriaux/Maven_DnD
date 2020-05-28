@@ -3,6 +3,15 @@
   <groupId>fr.DnDgroup</groupId>
   <artifactId>myDnDgame</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
+
+<dependencies>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.20</version>
+</dependency>
+
+
+</dependencies>  
 
 </project>

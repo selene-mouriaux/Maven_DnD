@@ -1,10 +1,13 @@
 package fr.warriors.engine;
 
-public class Warrior implements fr.warriors.contracts.Hero{
+import java.util.Scanner;
 
+public class Warrior implements fr.warriors.contracts.Hero{
+	public static Scanner sc = new Scanner(System.in);
 	public static final int MAX_LIFE_WARRIOR = 10;
 	public static final int MAX_ATTACK_LEVEL_WARRIOR = 10;
 	
+	private String id;
 	private String name;
 	private String image;
 	private int life;
@@ -16,7 +19,21 @@ public class Warrior implements fr.warriors.contracts.Hero{
 		this.life = 5;
 		this.attackLevel = 5;
 	}
+	public Warrior(String name, String image, int life, int attackLevel) {
+		this.name = name;
+		this.image = image;
+		this.life = life;
+		this.attackLevel = attackLevel;
+	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public int setLife(int value) {
 		this.life = this.life + value;
 		if (this.life > MAX_LIFE_WARRIOR)
@@ -29,6 +46,14 @@ public class Warrior implements fr.warriors.contracts.Hero{
 		if (this.attackLevel > MAX_ATTACK_LEVEL_WARRIOR)
 			this.attackLevel = MAX_ATTACK_LEVEL_WARRIOR;
 		return this.attackLevel;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	@Override

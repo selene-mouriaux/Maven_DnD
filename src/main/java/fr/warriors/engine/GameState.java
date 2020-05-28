@@ -3,6 +3,7 @@ package fr.warriors.engine;
 import java.time.LocalDateTime;
 import java.util.Random;
 
+import fr.warriors.contracts.GameStatus;
 import fr.warriors.contracts.Hero;
 import fr.warriors.contracts.Map;
 import fr.warriors.engine.MapSelection.eventType;
@@ -15,34 +16,49 @@ public class GameState implements fr.warriors.contracts.GameState {
 
 	String playerName;
 	String gameId;
-	fr.warriors.contracts.GameStatus gameStatus;
+	GameStatus gameStatus;
 	Hero hero;
 	Map map;
 	String lastLog;
 	int currentCase;
-	Debuff enemiesDebuffs;
+	Debuff enemiesDebuffs; //TODO : manage through DB as well later
 
 	public static final int DICE_SIZE = 6;
 	public String getPlayerName() {
-		// TODO Auto-generated method stub
 		return this.playerName;
 	}
 	
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+
+	public void setGameId(String gameId) {
+		this.gameId = gameId;
+	}
+
+	public void setGameStatus(GameStatus gameStatus) {
+		this.gameStatus = gameStatus;
+	}
+
+	public void setHero(Hero hero) {
+		this.hero = hero;
+	}
+
+	public void setCurrentCase(int currentCase) {
+		this.currentCase = currentCase;
+	}
+
 	public GameState() {
 		this.enemiesDebuffs = new Debuff();
 	}
-	
-	
 
 	@Override
 	public String getGameId() {
-		// TODO Auto-generated method stub
 		return this.gameId;
 	}
 
 	@Override
 	public fr.warriors.contracts.GameStatus getGameStatus() {
-		// TODO Auto-generated method stub
 		return this.gameStatus;
 	}
 	
@@ -52,13 +68,11 @@ public class GameState implements fr.warriors.contracts.GameState {
 
 	@Override
 	public Hero getHero() {
-		// TODO Auto-generated method stub
 		return this.hero;
 	}
 
 	@Override
 	public Map getMap() {
-		// TODO Auto-generated method stub
 		return this.map;
 	}
 
@@ -75,7 +89,6 @@ public class GameState implements fr.warriors.contracts.GameState {
 
 	@Override
 	public int getCurrentCase() {
-		// TODO Auto-generated method stub
 		return this.currentCase;
 	}
 
